@@ -42,8 +42,8 @@ public class GeneralSituationInputter extends Inputter {
         }
         Tile bakaze = fonpaiInputSupport("場風を入力して下さい");
 
-        dora = doraInputSupport("ドラを入力して下さい");
-        uradora = doraInputSupport("裏ドラを入力してください");
+        dora = doraInputSupport("ドラを入力して下さい(表示牌ではなく実際のドラです)");
+        uradora = doraInputSupport("裏ドラを入力してください(リーチと同時にしか判定されません)");
 
         situation = new GeneralSituation(isFirstRound, isHoutei, bakaze, dora, uradora);
     }

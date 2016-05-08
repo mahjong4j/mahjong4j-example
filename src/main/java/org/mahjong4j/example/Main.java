@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO:ドラは表示牌ではなく、実際のドラを入力してください
- * TODO:リーチしてないのにダブリーと一発なのか聞くのよくない
  * @author yu1ro
  */
 public class Main {
