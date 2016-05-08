@@ -3,6 +3,8 @@ package org.mahjong4j.example.input;
 import org.mahjong4j.IllegalMentsuSizeException;
 import org.mahjong4j.IllegalShuntsuIdentifierException;
 import org.mahjong4j.MahjongTileOverFlowException;
+import org.mahjong4j.example.output.HandsOutputter;
+import org.mahjong4j.example.output.Outputter;
 import org.mahjong4j.hands.*;
 import org.mahjong4j.tile.Tile;
 
@@ -42,7 +44,8 @@ public class HandInputter extends Inputter {
             int[] otherTiles = otherTileInputSupport(mentsuList.size());
             try {
                 hands = new Hands(otherTiles, finalTile, mentsuList);
-                // TODO: 全部表示して確認させる
+                Outputter handsOutputter = new HandsOutputter(hands);
+                handsOutputter.print();
                 loop = boolInputSupport("本当にこれでいいですか？ 1:OK 0:やっぱりもう一回入力する");
             } catch (MahjongTileOverFlowException | IllegalMentsuSizeException e) {
                 System.out.println("手牌としてありえないので、もう一度入力して下さい");

@@ -5,8 +5,9 @@ import org.mahjong4j.example.input.GeneralSituationInputter;
 import org.mahjong4j.example.input.HandInputter;
 import org.mahjong4j.example.input.Inputter;
 import org.mahjong4j.example.input.PersonalSituationInputter;
-import org.mahjong4j.yaku.normals.NormalYaku;
-import org.mahjong4j.yaku.yakuman.Yakuman;
+import org.mahjong4j.example.output.Outputter;
+import org.mahjong4j.example.output.ScoreOutputter;
+import org.mahjong4j.example.output.YakuOutputter;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -14,12 +15,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * TODO: 最初の文章に改行を入れよう
+ * TODO: ツモアガリかの表示の数が違う
+ * todo: "終了"より"入力しない"の方が良い
+ * TODO:入力確認が刻子と槓子がよくわかんない
+ *
  * @author yu1ro
  */
 public class Main {
     public static void main(String[] args) {
-        final BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Welcome to Mahjong4j Example!");
+        System.out.println("このプログラムではMahjong4jを使って実際に役判定・点数計算ができます");
+
+        Player player = buildPlayer();
+        player.calculate();
+
+        showResult(player);
+    }
+
+    private static Player buildPlayer() {
+        final BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         List<Inputter> inputterList = new ArrayList<>(3);
 
         GeneralSituationInputter generalInputter = new GeneralSituationInputter(input);
@@ -34,17 +49,14 @@ public class Main {
             inputter.input();
         });
 
-        Player player = new Player(handInputter.getHands(), generalInputter.getSituation(), personalInputter.getSituation());
-        player.calculate();
+        return new Player(handInputter.getHands(), generalInputter.getSituation(), personalInputter.getSituation());
+    }
 
-        System.out.println("player.getFu() = " + player.getFu());
-        System.out.println("player.getHan() = " + player.getHan());
-        for (Yakuman yakuman : player.getYakumanList()) {
-            System.out.println("yakuman = " + yakuman);
-        }
-        for (NormalYaku yaku : player.getNormalYakuList()) {
-            System.out.println("yaku = " + yaku);
-        }
-        System.out.println("player.getScore() = " + player.getScore());
+    private static void showResult(Player player) {
+        List<Outputter> out = new ArrayList<>(2);
+        out.add(new YakuOutputter(player));
+        out.add(new ScoreOutputter(player));
+
+        out.forEach(Outputter::print);
     }
 }
