@@ -1,6 +1,10 @@
 package org.mahjong4j.example;
 
 import org.mahjong4j.Player;
+import org.mahjong4j.example.input.GeneralSituationInputter;
+import org.mahjong4j.example.input.HandInputter;
+import org.mahjong4j.example.input.Inputter;
+import org.mahjong4j.example.input.PersonalSituationInputter;
 import org.mahjong4j.yaku.normals.NormalYaku;
 import org.mahjong4j.yaku.yakuman.Yakuman;
 

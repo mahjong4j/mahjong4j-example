@@ -1,4 +1,4 @@
-package org.mahjong4j.example;
+package org.mahjong4j.example.input;
 
 import org.mahjong4j.IllegalMentsuSizeException;
 import org.mahjong4j.IllegalShuntsuIdentifierException;
