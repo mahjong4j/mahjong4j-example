@@ -17,7 +17,7 @@ public class HandsOutputter implements Outputter {
     public void print() {
         int[] handsComp = hands.getHandsComp();
         for (int i = 0; i < handsComp.length; i++) {
-            if (handsComp[i] > 0) {
+            for (int j = handsComp[i]; j > 0; j--) {
                 System.out.printf(String.valueOf(Tile.valueOf(i)) + " ");
             }
         }

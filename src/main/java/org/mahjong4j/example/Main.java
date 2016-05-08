@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO:入力確認が刻子と槓子がよくわかんない
- *
  * @author yu1ro
  */
 public class Main {
