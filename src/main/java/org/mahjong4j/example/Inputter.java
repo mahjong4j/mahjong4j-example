@@ -19,9 +19,14 @@ public abstract class Inputter {
 
     public abstract void input();
 
-    protected Tile tileInputSupport(String msg) {
+    protected Tile tileInputSupport(String msg, boolean canNull) {
         System.out.println(msg);
-        int typeNum = inputSupport("種類を入力してください\n0: 終了 1: 萬子 2: 筒子 3: 索子 4: 風牌 5: 三元牌", 0, 5);
+        int typeNum;
+        if (canNull) {
+            typeNum = inputSupport("種類を入力してください\n0: 終了 1: 萬子 2: 筒子 3: 索子 4: 風牌 5: 三元牌", 0, 5);
+        } else {
+            typeNum = inputSupport("種類を入力してください\n1: 萬子 2: 筒子 3: 索子 4: 風牌 5: 三元牌", 1, 5);
+        }
         switch (typeNum) {
             case 1:
                 return manzuInputSupport();

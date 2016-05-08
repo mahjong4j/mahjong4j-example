@@ -56,7 +56,7 @@ public class GeneralSituationInputter extends Inputter {
         List<Tile> dora = new ArrayList<>(4);
 
         for (int i = 0; i < 4; i++) {
-            Tile tile = tileInputSupport(msg);
+            Tile tile = tileInputSupport(msg, true);
             if (tile == null) {
                 break;
             }

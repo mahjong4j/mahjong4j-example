@@ -38,7 +38,7 @@ public class HandInputter extends Inputter {
         boolean loop = false;
         while (!loop) {
             List<Mentsu> mentsuList = mentsuListInputSupport();
-            Tile finalTile = tileInputSupport("和了牌を入力してください");
+            Tile finalTile = tileInputSupport("和了牌を入力してください", false);
             int[] otherTiles = otherTileInputSupport(mentsuList.size());
             try {
                 hands = new Hands(otherTiles, finalTile, mentsuList);
@@ -79,20 +79,18 @@ public class HandInputter extends Inputter {
     }
 
     private Kantsu kantsuInputSupport(boolean isOpen) {
-        // TODO: escape null pointer
-        return new Kantsu(isOpen, tileInputSupport("槓子を構成する牌を入力してください"));
+        return new Kantsu(isOpen, tileInputSupport("槓子を構成する牌を入力してください", false));
     }
 
     private Kotsu kotsuInputSupport() {
-        // TODO: Escape null pointer
-        return new Kotsu(true, tileInputSupport("刻子を構成する牌を入力してください"));
+        return new Kotsu(true, tileInputSupport("刻子を構成する牌を入力してください", false));
     }
 
     private Shuntsu shuntsuInputSupport() {
         String msg = "順子の2番目の牌を入力して下さい";
 
         while (true) {
-            Tile tile = tileInputSupport(msg);
+            Tile tile = tileInputSupport(msg, false);
             try {
                 return new Shuntsu(true, tile);
             } catch (IllegalShuntsuIdentifierException e) {
@@ -106,7 +104,7 @@ public class HandInputter extends Inputter {
         System.out.println("和了牌も含めて公開していない牌をひとつずつ入力して下さい");
         for (int i = 0; i < (14 - menstuSize * 3); i++) {
 
-            tiles[tileInputSupport((i + 1) + "個目です").getCode()]++;
+            tiles[tileInputSupport((i + 1) + "個目です", false).getCode()]++;
         }
 
         return tiles;
