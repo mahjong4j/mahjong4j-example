@@ -27,6 +27,7 @@ public class GeneralSituationInputter extends Inputter {
 
     @Override
     public void printHeaderComment() {
+        System.out.println();
         System.out.println("====全体の状況を入力します===");
         System.out.println("最大で11項目、通常は5項目の入力が必要です");
     }

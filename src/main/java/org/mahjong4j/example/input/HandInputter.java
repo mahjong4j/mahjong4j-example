@@ -28,6 +28,7 @@ public class HandInputter extends Inputter {
 
     @Override
     public void printHeaderComment() {
+        System.out.println();
         System.out.println("===手牌を入力します===");
         System.out.println("1. 槓子・明刻・明順子の入力");
         System.out.println("2. 見せていない牌の入力");

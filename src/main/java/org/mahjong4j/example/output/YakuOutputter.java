@@ -20,6 +20,7 @@ public class YakuOutputter implements Outputter {
 
     @Override
     public void print() {
+        System.out.println();
         if (yakumanList.size() > 0) {
             System.out.println("！！！！！！！！役満！！！！！！！！");
             yakumanList.forEach(yakuman -> System.out.println(yakuman.getJapanese()));
@@ -28,6 +29,5 @@ public class YakuOutputter implements Outputter {
         } else {
             System.out.println("役ナシ。。。");
         }
-
     }
 }

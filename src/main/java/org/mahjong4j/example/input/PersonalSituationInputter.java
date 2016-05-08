@@ -21,13 +21,14 @@ public class PersonalSituationInputter extends Inputter {
 
     @Override
     public void printHeaderComment() {
+        System.out.println();
         System.out.println("===個人の状況を入力します===");
         System.out.println("7項目の入力が必要です");
     }
 
     @Override
     public void input() {
-        boolean isTsumo = boolInputSupport("ツモアガリですか? 1:ツモ 2:ロン");
+        boolean isTsumo = boolInputSupport("ツモアガリですか? 1:ツモ 0:ロン");
         boolean isReach = boolInputSupport("リーチしましたか? 1:リーチ 0:してない");
         boolean isDoubleReach = false;
         boolean isIppatsu = false;

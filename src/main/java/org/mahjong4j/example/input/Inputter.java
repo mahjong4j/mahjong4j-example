@@ -22,10 +22,11 @@ public abstract class Inputter {
     protected Tile tileInputSupport(String msg, boolean canNull) {
         System.out.println(msg);
         int typeNum;
+        final String typeString = "種類を入力してください\n1: 萬子 2: 筒子 3: 索子 4: 風牌 5: 三元牌";
         if (canNull) {
-            typeNum = inputSupport("種類を入力してください\n0: 終了 1: 萬子 2: 筒子 3: 索子 4: 風牌 5: 三元牌", 0, 5);
+            typeNum = inputSupport(typeString + " 0: 入力しない ", 0, 5);
         } else {
-            typeNum = inputSupport("種類を入力してください\n1: 萬子 2: 筒子 3: 索子 4: 風牌 5: 三元牌", 1, 5);
+            typeNum = inputSupport(typeString, 1, 5);
         }
         switch (typeNum) {
             case 1:

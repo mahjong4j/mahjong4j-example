@@ -15,9 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO: 最初の文章に改行を入れよう
- * TODO: ツモアガリかの表示の数が違う
- * todo: "終了"より"入力しない"の方が良い
  * TODO:入力確認が刻子と槓子がよくわかんない
  *
  * @author yu1ro
