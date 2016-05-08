@@ -18,7 +18,9 @@ public class Main {
         GeneralSituationInputter generalInputter = new GeneralSituationInputter(input);
         PersonalSituationInputter personalInputter = new PersonalSituationInputter(input);
 
+        generalInputter.printOptionComment();
         generalInputter.input();
+        personalInputter.printOptionComment();
         personalInputter.input();
 
         GeneralSituation generalSituation = generalInputter.getSituation();

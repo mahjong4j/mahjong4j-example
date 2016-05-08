@@ -10,9 +10,7 @@ import java.util.List;
 /**
  * @author yu1ro
  */
-public class GeneralSituationInputter extends SituationInputter {
-    private final String firstRoundMsg = "最初の1周でこれまでに誰も鳴いていませんでしたか? 1:1周目かつ誰も鳴いていない 0:いいえ";
-    private final String houteiMsg = "最後の牌で和了しましたか? 1:最後の牌 0:最後の牌ではない";
+public class GeneralSituationInputter extends Inputter {
     private GeneralSituation situation;
     private boolean isFirstRound;
     private boolean isHoutei;
@@ -35,9 +33,11 @@ public class GeneralSituationInputter extends SituationInputter {
 
     @Override
     public void input() {
+        final String firstRoundMsg = "最初の1周でこれまでに誰も鳴いていませんでしたか? 1:1周目かつ誰も鳴いていない 0:いいえ";
         if (isFirstRound = boolInputSupport(firstRoundMsg)) {
             isHoutei = false;
         } else {
+            final String houteiMsg = "最後の牌で和了しましたか? 1:最後の牌 0:最後の牌ではない";
             isHoutei = boolInputSupport(houteiMsg);
         }
         Tile bakaze = fonpaiInputSupport("場風を入力して下さい");
@@ -49,7 +49,6 @@ public class GeneralSituationInputter extends SituationInputter {
     }
 
     /**
-     * TODO:show guide for type
      * @param msg InputMessage
      * @return ドラのリスト
      */
