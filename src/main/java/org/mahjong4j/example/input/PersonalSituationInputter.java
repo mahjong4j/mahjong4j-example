@@ -39,7 +39,6 @@ public class PersonalSituationInputter extends Inputter {
         boolean isChankan = boolInputSupport("槍槓ですか? 1:槍槓 0:ではない");
         boolean isRinshanKaihoh = boolInputSupport("嶺上開花ですか? 1:嶺上開花 0:ではない");
         Tile jikaze = fonpaiInputSupport("自風を入力して下さい");
-        boolean isParent = jikaze == Tile.TON;
-        situation = new PersonalSituation(isParent, isTsumo, isIppatsu, isReach, isDoubleReach, isChankan, isRinshanKaihoh, jikaze);
+        situation = new PersonalSituation(isTsumo, isIppatsu, isReach, isDoubleReach, isChankan, isRinshanKaihoh, jikaze);
     }
 }
