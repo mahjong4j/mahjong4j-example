@@ -15,11 +15,12 @@ public abstract class Inputter {
         this.input = input;
     }
 
-    public abstract void printOptionComment();
+    public abstract void printHeaderComment();
 
     public abstract void input();
 
-    protected Tile tileInputSupport() {
+    protected Tile tileInputSupport(String msg) {
+        System.out.println(msg);
         int typeNum = inputSupport("種類を入力してください\n0: 終了 1: 萬子 2: 筒子 3: 索子 4: 風牌 5: 三元牌", 0, 5);
         switch (typeNum) {
             case 1:

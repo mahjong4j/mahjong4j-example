@@ -20,7 +20,7 @@ public class PersonalSituationInputter extends Inputter {
     }
 
     @Override
-    public void printOptionComment() {
+    public void printHeaderComment() {
         System.out.println("===個人の状況を入力します===");
         System.out.println("7項目の入力が必要です");
     }

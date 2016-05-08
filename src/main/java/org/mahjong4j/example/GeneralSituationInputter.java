@@ -26,7 +26,7 @@ public class GeneralSituationInputter extends Inputter {
     }
 
     @Override
-    public void printOptionComment() {
+    public void printHeaderComment() {
         System.out.println("====全体の状況を入力します===");
         System.out.println("最大で11項目、通常は5項目の入力が必要です");
     }
@@ -55,9 +55,8 @@ public class GeneralSituationInputter extends Inputter {
     private List<Tile> doraInputSupport(String msg) {
         List<Tile> dora = new ArrayList<>(4);
 
-        System.out.println(msg);
         for (int i = 0; i < 4; i++) {
-            Tile tile = tileInputSupport();
+            Tile tile = tileInputSupport(msg);
             if (tile == null) {
                 break;
             }
